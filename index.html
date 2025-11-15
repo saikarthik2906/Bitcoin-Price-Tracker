@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Auto-refresh every 5 seconds -->
+    <meta http-equiv="refresh" content="60">
+
+    <title>Bitcoin Price Tracker</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4 md:p-8">
+    
+    <div class="w-full max-w-5xl bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-10">
+        <!-- TOP SECTION: USD PRICE + ROTATING BITCOIN -->
+         <h1 class="main-title">Bitcoin Price Tracker</h1>
+        <div class="flex flex-col md:flex-row items-center justify-between w-full mb-8 md:mb-12">
+
+            <div class="text-center md:text-left mb-8 md:mb-0">
+                <h2 class="text-2xl font-bold text-yellow-400">Bitcoin (BTC)</h2>
+                <p id="real-time-price" class="text-6xl md:text-7xl font-black text-white my-3">$0.00</p>
+                <p id="price-change" class="text-lg text-green-400 font-medium">+0.00% (24h)</p>
+                <p class="text-sm text-gray-400 mt-2">Last updated: <span id="last-updated">...</span></p>
+            </div>
+
+            <img src="bitcoin.png" alt="Bitcoin Logo"
+                class="w-52 h-52 md:w-64 md:h-64 rotate-png">
+        </div>
+
+        <!-- TAB BUTTONS -->
+        <div class="w-full">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4 mb-4">
+                <button id="btn-week" class="tab-btn active">Week</button>
+                <button id="btn-month" class="tab-btn">Month</button>
+                <button id="btn-year" class="tab-btn">Year</button>
+            </div>
+
+            <!-- CHART -->
+            <div class="bg-gray-700 p-4 rounded-lg" style="height: 40vh;">
+                <canvas id="priceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- REAL-TIME BTC PRICE IN INR -->
+        <div class="mt-10 bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+            <h2 class="text-2xl font-bold text-yellow-400">Bitcoin (BTC)</h2>
+            <p id="real-time-price-inr" class="text-5xl font-black text-white my-3">₹0.00</p>
+            <p id="price-change-inr" class="text-lg text-green-400 font-medium">+0.00% (24h)</p>
+            <p class="text-sm text-gray-400 mt-2">Last updated: <span id="last-updated-inr">...</span></p>
+        </div>
+
+        <!-- BTC ⇄ INR CONVERTER -->
+        <div class="mt-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-4 text-center">Bitcoin ⇄ Indian Rupees Converter</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- BTC Input -->
+                <div>
+                    <label class="block mb-2 text-gray-300">BTC Amount</label>
+                    <input type="number" id="btcInput" 
+                        class="w-full p-3 rounded-lg text-black"
+                        placeholder="Enter Bitcoin amount">
+                </div>
+
+                <!-- INR Input -->
+                <div>
+                    <label class="block mb-2 text-gray-300">INR Amount</label>
+                    <input type="number" id="inrInput"
+                        class="w-full p-3 rounded-lg text-black"
+                        placeholder="Enter INR amount">
+                </div>
+            </div>
+
+            <p id="btcRate" class="text-center text-gray-400 mt-4">Loading latest BTC → INR rate...</p>
+        </div>
+
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js" defer></script>
+</body>
+</html>

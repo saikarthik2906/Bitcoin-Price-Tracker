@@ -1,0 +1,43 @@
+/* CUSTOM CSS — Tailwind CDN already provides utilities */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Tab button styles */
+.tab-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #9ca3af;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.tab-btn.active {
+    background-color: #2563eb;
+    color: white;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+}
+
+/* Rotate 360 degrees animation */
+@keyframes spinPNG {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.rotate-png {
+    animation: spinPNG 4s linear infinite;
+    display: block;
+    transform-origin: center;
+}
+
+h1.main-title {
+    display: block;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #2563eb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
