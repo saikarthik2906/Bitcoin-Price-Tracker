@@ -30,6 +30,13 @@ bitcoin-price-tracker/
 
 ---
 
+# Screenshots
+
+![Login Page](screenshots/page1.png)
+
+![Login Page](screenshots/page2.png)
+
+---
 ## 🚀 Features
 
 ### 📈 Live Bitcoin Price Tracking
